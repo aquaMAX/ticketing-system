@@ -155,6 +155,15 @@ db_schema:
     - admin_ui: {width: 200}
       name: name
       type: string
+    - admin_ui: {order: 6, width: 200}
+      name: confirmed_email
+      type: bool
+    - admin_ui: {order: 7, width: 200}
+      name: password_hash
+      type: string
+    - admin_ui: {order: 8, width: 200}
+      name: n_password_failures
+      type: number
     server: full
     title: Users
 dependencies: []
@@ -175,7 +184,7 @@ services:
 - client_config: {}
   server_config: {}
   source: /runtime/services/tables.yml
-- client_config: {allow_remember_me: true, allow_signup: true, confirm_email: true, enable_automatically: true, remember_me_days: 30, use_email: true, use_google: true}
+- client_config: {allow_remember_me: true, allow_signup: true, confirm_email: true, enable_automatically: true, remember_me_days: 30, require_secure_passwords: false, use_email: true, use_google: true}
   server_config: {user_table: users}
   source: /runtime/services/anvil/users.yml
 - client_config: {}
